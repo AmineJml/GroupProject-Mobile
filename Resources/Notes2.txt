@@ -1,0 +1,101 @@
+Features: Users shall be able to login, register, post a tweet, delete a tweet,
+edit profile, like a tweet, and surf the feed to read other's tweets. 
+All the tweets appear to all users on the application. 
+
+login, register, edit profile,
+
+post a tweet, delete a tweet, surf the feed, like a tweet, All the tweets appear to all users
+ 
+- 2tables:
+users 
+- u_id		
+- FName		
+- LName
+- Username	
+- Password
+
+tweets
+- u_id
+- Tweet_id
+- posted_by
+- is_deleted
+- tweet
+
+objects:
+Post (feedView - accountView) - API - functions:
+- their username
+- post likes
+- time
+
+
+APIs:
+1- postUser(username, password) --> return: u_id, FNAME, LName, username, password / False ->login
+2- addUser(FName, LName, Username, password) --> return user already exists / Success -> register
+3- Tweet_view() --> return tweet, like_count, username WHERE is_deleted == true
+4- Tweet_add(Tweet_id*, currentDate*, comments*, postedBy(u_id), currentDate, tweet) //Qst add username (faster?)
+5- Tweet_View_person(u_id) --> same as psotTweet_view() WHERE id = "input"
+6- edit_profile(username, FName, LName, pfp, password) --> return true success
+7- like_tweet(u_id, tweet_id)
+8- delete_tweet(u_id) --> set is_deleted to false
+
+ 
+No internet connection return to login
+GetIp address
+
+Login:
+-	postUser(username, password) --> True or Flase
+	add u_id, FName, LName, username as global variables;
+-	Before calling the api:
+	Check empty username and password
+	After calling te api
+	reurn true: ->gonext act. feedView else: toast wrong input
+	
+Register:
+-	2 steps:
+	check if user is in db
+	addUser(FName, LName, Username, password) 
+-	Before calling the api:
+	Check empty fields
+	After calling te api
+	reurn true: ->toast user added go login act. feed  else: toast wrong input
+	
+Feed View:
+	postTweet_view()
+	display from newest to oldest 
+	
+	
+	
+add tweet view:
+	postTweet_add(Tweet_id*, currentDate*, comments*, postedBy(u_id), currentDate, tweet) //Qst add username (faster?)
+	Check empty fields
+
+Account view:
+	postTweet_View_id(u_id)
+	
+
+Edit profile:
+	edit_profile(username, FName, LName, pfp, password)
+
+
+
+palletS:
+	-#000000 black
+	-#2F4550 Charcoal
+	-#2F4550 Cadet
+	-#2F4550 Powder blue
+	-#2F4550 Ghost white
+
+
+Steps:
+1- design frontend - blue print *
+2- Create database
+3- create API and test them
+4- create front end
+5- linking
+6- debg
+
+- splash screen
+- new post (design)
+- nav bar
+
+

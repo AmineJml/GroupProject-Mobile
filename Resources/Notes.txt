@@ -1,0 +1,52 @@
+front end:
+- 6 different activities:
+	- Login to other act -> userNam
+	- FIRST TIME USERS -> SHOW REGISTER
+	- Login -> home (no tweets -> reminder)
+	- Feed (3) -> paramter(new post)
+	- 
+- extra splash screen
+
+
+66:50 PM 11/1/2022
+- class linking: 
+	- Post API
+        - Delete API
+ 	- Like API
+	- comment API
+	- Edit API
+	- Register API
+	- View other tweets API
+	- View my tweets API
+back end
+
+LINKING <- to be learned
+
+Git hub repo <- create it
+
+refresh:
+	- login 
+	- register
+	- Like
+	- comment
+	- register
+	- Edit profile
+	- Add button refresh -> feed
+	- After every activity 
+
+Qst:
+	- pfp
+	- how many activities do we need
+	- remove taskbar
+	- pop up "are u sure"
+	- how to add navbar
+	- Tweets --> one list that have all the tweets (loading problems)
+	- spa
+
+palletS:
+	-#000000 NIGGA
+	-#2F4550 Charcoal
+	-#2F4550 Cadet
+	-#2F4550 Powder blue
+	-#2F4550 Ghost white
+
