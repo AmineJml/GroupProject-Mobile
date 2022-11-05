@@ -24,8 +24,6 @@ public class MainActivity1 extends AppCompatActivity {
         setContentView(R.layout.activity_main1);
         Button btn = (Button)findViewById(R.id.signup);
         Button btn1 = (Button)findViewById(R.id.login);
-        EditText user = (EditText) findViewById(R.id.username);
-        EditText  pass = (EditText)findViewById(R.id.password);
     }
 
     public void login(View view){
