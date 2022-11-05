@@ -24,8 +24,9 @@ while($tweets = $array->fetch_assoc()){
     $response[] = $tweets;
 }
 
-if($response[1] == null){
-    die("There are no tweets with this user");
+if($response[0] == null){
+    die("This user does not have any tweets");
+    $response["success"] = false;
 }
 
 echo json_encode($response);
