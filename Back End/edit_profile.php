@@ -20,7 +20,6 @@ else{
     return; 
 }
 
-
 $query = $mysqli->prepare("UPDATE users SET Username=?, FName=? , LName=?, Password=? WHERE User_id=?");
 $query->bind_param("ssssi", $Username, $FName, $LName, $Password, $User_id);
 $query->execute();
