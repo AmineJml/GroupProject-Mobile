@@ -1,18 +1,19 @@
 <?php
 include("connection.php");
 
-if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["delete"]) && $_POST["delete"] != "" ){
+if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["Tweet_id"]) && $_POST["Tweet_id"] != "" ){
     $User_id = $_POST["User_id"];
-    $Is_deleted = $_POST["delete"];
-}else{--
+    $Tweet_id = $_POST["Tweet_id"];
+}else{
     $response = [];
     $response["success"] = false;   
     echo json_encode($response);
+   
     return; 
 }
-//no need to add if condition if
-$query = $mysqli->prepare("INSERT INTO tweets(User_id, Is_deleted) VALUES (?, ?, ?, ?)");
-$query->bind_param("ib", $User_id, $Is_deleted);
+
+$query = $mysqli->prepare("UPDATE tweets SET Is_deleted = Is_deleted - 1  WHERE User_id=? && Tweet_id = ?");
+$query->bind_param("ii", $User_id, $Tweet_id);
 $query->execute();
 
 $response = [];
