@@ -2,6 +2,7 @@ package com.example.retweet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,7 +27,11 @@ public class MainActivity2 extends AppCompatActivity {
     EditText user = (EditText) findViewById(R.id.user);
     EditText pass = (EditText) findViewById(R.id.pass);
     EditText confirm_pass = (EditText) findViewById(R.id.confirm_pass);
-    if(pass!=confirm_pass){
+
+    String pass_val = pass.getText().toString();
+    String cpass_val = confirm_pass.getText().toString();
+
+    if(pass_val!=cpass_val){
         Toast.makeText(this, "Passwords aren't the same!", Toast.LENGTH_SHORT).show();
     }else if(user.equals(fname)){ //change if condition
         //check all input if already exist in db
@@ -34,7 +39,7 @@ public class MainActivity2 extends AppCompatActivity {
     }else{
         //save all input in db
         Toast.makeText(this, "Welcome @"+user+"!", Toast.LENGTH_SHORT).show();
-        startActivity();
+        startActivity(new Intent(MainActivity2.this, MainActivity3.class));
         }
     }
 }

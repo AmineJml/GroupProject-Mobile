@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 /*
     Activity 2 --> We have now moved to the login page
                    where a frequent user logs in. If
@@ -16,7 +15,6 @@ import android.widget.Toast;
                    for a new account.
  */
 public class MainActivity1 extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
