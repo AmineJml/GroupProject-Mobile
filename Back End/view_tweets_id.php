@@ -25,7 +25,7 @@ while($tweets = $array->fetch_assoc()){
 }
 
 if(!$response ){ //list is empty
-    $response["success"] = "empty";   
+    $response["success"] = "no_tweets_by_this_user";   
 }
 
 echo json_encode($response);

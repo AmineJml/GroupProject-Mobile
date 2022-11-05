@@ -4,10 +4,6 @@ header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
 
 include("connection.php");
-//tweet_id
-//2 steps
-//first get the like count 
-//second increment it by one and update it in the database
 
 if(isset($_POST["Tweet_id"]) && $_POST["Tweet_id"] != ""){
     $Tweet_id = $_POST["Tweet_id"];

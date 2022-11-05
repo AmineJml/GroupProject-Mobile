@@ -15,7 +15,7 @@ if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["Tweet"])
     echo json_encode($response);
     return; 
 }
-$Is_deleted = 1;
+$Is_deleted = 0;
 $like_count = 0;
 
 $query = $mysqli->prepare("INSERT INTO tweets(User_id, Tweet, Is_deleted, Like_count) VALUES (?, ?, ?, ?)");

@@ -5,9 +5,9 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 include("connection.php");
 
-if(isset(isset($_POST["Username"]) && $_POST["Username"] != ""&& isset($_POST["Password"]) && $_POST["Password"] != "" ){
+if(isset($_POST["Username"])   ){
     $Username = $_POST["Username"];
-    $Password = $_POST["Password"];
+   // $Password = $_POST["Password"];
 }else{
      $response = [];
      $response["success"] = false;   
@@ -20,20 +20,19 @@ $query->bind_param("s", $Username);
 $query->execute();
 
 $array = $query->get_result();
-
-$response_values = [];
-$response_success = [];
-
-while($users = $array->fetch_assoc()){
-    $response_values[] = $users;
+$response = [];
+while($tweets = $array->fetch_assoc()){
+    $response[] = $tweets;
 }
 
-if($response_values[0] == null){
-    $response_success["success"] = true;
-    echo json_encode($response);
+if(!$response ){ //list is empty
+    $response["success"] = "user_does_not_exit";   
 }
 
 else{
-    die("User already exist");
-    $response_success["success"] = false;
+  
+    $response["success"] = true;   
+
 }
+echo json_encode($response);
+
