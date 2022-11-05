@@ -20,9 +20,9 @@ if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["FName"])
 }
 
 
-//$query = $mysqli->prepare("INSERT INTO users(Username, FName, LName, Password) WHERE User_id = $User_id " VALUES ( ?, ?, ?, ?));
-$query = $mysqli->prepare("UPDATE users SET FName=? WHERE User_id=?");
-$query->bind_param("si", $FName, $User_id);
+$query = $mysqli->prepare("UPDATE users SET FName=? , LName=? WHERE User_id=?");
+//$query = $mysqli->prepare("UPDATE users SET FName=? WHERE User_id=?");
+$query->bind_param("ssi", $FName, LName, $User_id);
 $query->execute();
 
 $response = [];
