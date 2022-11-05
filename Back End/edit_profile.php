@@ -9,9 +9,10 @@ include("connection.php");
 //     $LName = $_POST["LName"];
 //     $Password = $_POST["Password"];
 // }
-if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["FName"]) && $_POST["FName"] != ""){
+if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["FName"]) && $_POST["FName"] != "" && isset($_POST["LName"]) && $_POST["LName"] != ""){
     $User_id = $_POST["User_id"];
     $FName = $_POST["FName"];
+    $LName = $_POST["LName"];
 }else{
     $response = [];
     $response["success"] = false;   
@@ -21,8 +22,7 @@ if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["FName"])
 
 
 $query = $mysqli->prepare("UPDATE users SET FName=? , LName=? WHERE User_id=?");
-//$query = $mysqli->prepare("UPDATE users SET FName=? WHERE User_id=?");
-$query->bind_param("ssi", $FName, LName, $User_id);
+$query->bind_param("ssi", $FName, $LName, $User_id);
 $query->execute();
 
 $response = [];
