@@ -5,8 +5,8 @@ include("connection.php");
 //first get the like count 
 //second increment it by one and update it in the database
 
-if(isset($_POST["tweet_id"]) && $_POST["tweet_id"] != ""){
-    $tweet_id = $_POST["tweet_id"];
+if(isset($_POST["Tweet_id"]) && $_POST["Tweet_id"] != ""){
+    $Tweet_id = $_POST["Tweet_id"];
 
 }else{
     $response = [];
@@ -15,16 +15,12 @@ if(isset($_POST["tweet_id"]) && $_POST["tweet_id"] != ""){
     return; 
 }
 
-$query = $mysqli->prepare("SELECT Like_count FROM tweets WHERE tweet_id = ?");
-$query->bind_param("i", $tweet_id);
+$query = $mysqli->prepare("UPDATE tweets SET Like_count = Like_count + 1 WHERE Tweet_id = ?");
+$query->bind_param("i",  $Tweet_id );
 $query->execute();
 
-$results = $query->get_result();
-
-while($Like_count = $results->fetch_assoc()){
-    $response = $Like_count;
-}
-
+$response = [];
+$response["success"] = true;
 echo json_encode($response);
 
 
