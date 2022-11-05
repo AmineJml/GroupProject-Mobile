@@ -1,4 +1,8 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
+
 include("connection.php");
 
 if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["Tweet_id"]) && $_POST["Tweet_id"] != "" ){

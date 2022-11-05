@@ -5,8 +5,8 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 include("connection.php");
 
-if(isset($_GET["id"])){
-    $id = $_GET["id"];
+if(isset($_GET["User_id"])){
+    $User_id = $_GET["User_id"];
 }else{
     $response = [];
     $response["success"] = false;   
@@ -14,8 +14,8 @@ if(isset($_GET["id"])){
     return;  
 }
 
-$query = $mysqli->prepare("Select * from tweets WHERE User_id = ?");
-$query->bind_param("i", $id);
+$query = $mysqli->prepare("Select Tweet from tweets WHERE User_id = ?");
+$query->bind_param("i", $User_id);
 $query->execute();
 
 $array = $query->get_result();
