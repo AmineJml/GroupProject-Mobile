@@ -5,9 +5,9 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 include("connection.php");
 
-if(isset($_POST["Username"])   ){
+if(isset($_POST["Username"]) && $_POST["Username"] != "" && isset($_POST["Password"]) && $_POST["Password"] != ""  ){
     $Username = $_POST["Username"];
-   // $Password = $_POST["Password"];
+    $Password = $_POST["Password"];
 }else{
      $response = [];
      $response["success"] = false;   
@@ -15,14 +15,14 @@ if(isset($_POST["Username"])   ){
      return; 
  }
 
-$query = $mysqli->prepare("Select * from users WHERE Username = ?");
-$query->bind_param("s", $Username);
+$query = $mysqli->prepare("Select * from users WHERE Username = ? && Password=?");
+$query->bind_param("ss", $Username, $Password);
 $query->execute();
 
 $array = $query->get_result();
 $response = [];
-while($tweets = $array->fetch_assoc()){
-    $response[] = $tweets;
+while($credentials = $array->fetch_assoc()){
+    $response[] = $credentials;
 }
 
 if(!$response ){ //list is empty

@@ -16,7 +16,7 @@ if(isset($_POST["User_id"]) && $_POST["User_id"] != "" && isset($_POST["Tweet_id
     return; 
 }
 
-$query = $mysqli->prepare("UPDATE tweets SET Is_deleted = Is_deleted - 1  WHERE User_id=? && Tweet_id = ?");
+$query = $mysqli->prepare("UPDATE tweets SET Is_deleted = Is_deleted + 1  WHERE User_id=? && Tweet_id = ?");
 $query->bind_param("ii", $User_id, $Tweet_id);
 $query->execute();
 

@@ -23,23 +23,24 @@ $query->execute();
 
 $array = $query->get_result();
 
-$response_values = [];
+$response = [];
 $response_success = [];
 
 while($users = $array->fetch_assoc()){
-    $response_values[] = $users;
+    $response[] = $users;
 }
 
-if($response_values[0] == null){
-    $query = $mysqli->prepare("INSERT INTO users( FName, LName, Username, Password) VALUES ( ?, ?, ?, ?)");
-    $query->bind_param("ssss", $FName, $LName, $Username, $Password);
-    $query->execute();
-    $response_success["success"] = true;
-
-    echo json_encode($response);
+if(!$response_values){
+    die("User already exist");
+    $response_success["success"] = false;
 }
 
 else{
-    die("User already exist");
-    $response_success["success"] = false;
+
+    $query = $mysqli->prepare("INSERT INTO users( FName, LName, Username, Password) VALUES ( ?, ?, ?, ?)");
+    $query->bind_param("ssss", $FName, $LName, $Username, $Password);
+    $query->execute();
+    $response["success"] = true;
+
+    echo json_encode($response);
 }
