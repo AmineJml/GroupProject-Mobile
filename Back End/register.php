@@ -26,13 +26,13 @@ $array = $query->get_result();
 $response = [];
 $response_success = [];
 
-while($users = $array->fetch_assoc()){
-    $response[] = $users;
+while($accounts = $array->fetch_assoc()){
+    $users[] = $accounts;
 }
 
-if(!$response_values){
-    die("User already exist");
-    $response_success["success"] = false;
+if($users){ //if list is not empty
+    $response["success"] = false;
+    echo json_encode($users);
 }
 
 else{
@@ -41,6 +41,5 @@ else{
     $query->bind_param("ssss", $FName, $LName, $Username, $Password);
     $query->execute();
     $response["success"] = true;
-
     echo json_encode($response);
 }
