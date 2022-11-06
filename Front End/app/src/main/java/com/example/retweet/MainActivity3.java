@@ -1,7 +1,6 @@
 package com.example.retweet;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +18,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+    Activity 4 --> We have now moved to the feed
+                   which shows all tweets on the
+                   db and the user can add their
+                   tweet to the feed.
+ */
 public class MainActivity3 extends AppCompatActivity {
 
     String base_url = "http://192.168.0.108.";
@@ -31,8 +36,9 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
         queue = Volley.newRequestQueue(MainActivity3.this);
         Button add_tweet = (Button) findViewById(R.id.addTweet);
-
     }
+
+    //SHOW ALL TWEETS IN DB AND ADD FROM BUTTON AND SHOW ON FEED
     
     public void getTweet(){
         String url = base_url + "view_all_tweets.php";
@@ -64,9 +70,9 @@ public class MainActivity3 extends AppCompatActivity {
 
             public Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("User_id", user_id);
-                params.put("username", username);
-                params.put("Tweet", tweet);
+//                params.put("User_id", user_id);
+//                params.put("username", username);
+//                params.put("Tweet", tweet);
                 return params;
             }
         };

@@ -4,10 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONObject;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /*
     Activity 2 --> We have now moved to the login page
                    where a frequent user logs in. If
@@ -16,12 +30,48 @@ import android.widget.Toast;
  */
 public class MainActivity1 extends AppCompatActivity {
 
+    String base_url="http://192.168.0.101/GroupProject/Back End/";
+    StringRequest request;
+    RequestQueue queue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
         Button btn = (Button)findViewById(R.id.signup);
         Button btn1 = (Button)findViewById(R.id.login);
+    }
+
+    public void register(String FName, String LName, String Username, String Password){
+        String url = base_url + "register.php";
+
+
+        request = new StringRequest(Request.Method.POST, url, this::onResponse, this::onError) {
+            public Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("FName", FName);
+                params.put("LName", LName);
+                params.put("Username", Username);
+                params.put("Password", Password);
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void onError(VolleyError error){
+        Toast.makeText(MainActivity1.this, "Error", Toast.LENGTH_LONG).show();
+    }
+
+    public void onResponse(String response){
+        Toast.makeText(MainActivity1.this, "Data Retreived from the Server", Toast.LENGTH_SHORT).show();
+        try{
+            JSONObject json = new JSONObject((response));
+            Log.d("Response", json.toString());
+        }catch(Exception e){
+            Log.i("Error", Arrays.toString(e.getStackTrace()));
+        }
+
     }
 
     public void login(View view){
