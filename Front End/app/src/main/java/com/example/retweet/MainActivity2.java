@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
     }
 
-    public void getStarted(){
+    public void getStarted(View view){
     EditText fname = (EditText) findViewById(R.id.fname);
     EditText lname = (EditText) findViewById(R.id.lname);
     EditText user = (EditText) findViewById(R.id.user);

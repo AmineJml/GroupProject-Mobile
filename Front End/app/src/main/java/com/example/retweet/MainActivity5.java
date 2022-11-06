@@ -17,7 +17,7 @@ public class MainActivity5 extends AppCompatActivity {
     public void logout(View view){
         startActivity(new Intent(MainActivity5.this, MainActivity1.class));
     }
-    
+
     public void goHome(View view){
         startActivity(new Intent(MainActivity5.this, MainActivity3.class));
     }
