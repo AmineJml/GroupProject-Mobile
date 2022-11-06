@@ -96,9 +96,17 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="697dp" />
+        android:layout_width="61dp"
+        android:layout_height="49dp"
+        android:onClick="goHome"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="49dp"
+        android:layout_height="53dp"
+        android:onClick="goAccount"
+        tools:layout_editor_absoluteX="320dp"
+        tools:layout_editor_absoluteY="661dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,4 +15,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/account2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="52dp"
+        android:layout_height="65dp"
+        android:onClick="goSettings"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="657dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="52dp"
+        android:layout_height="65dp"
+        android:onClick="goHome"
+        tools:layout_editor_absoluteX="179dp"
+        tools:layout_editor_absoluteY="657dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
