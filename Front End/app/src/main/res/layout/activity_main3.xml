@@ -51,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:onClick="addTweet"
         app:backgroundTint="#F1F3FF"
         app:srcCompat="@drawable/addicon"
         tools:layout_editor_absoluteX="339dp"
