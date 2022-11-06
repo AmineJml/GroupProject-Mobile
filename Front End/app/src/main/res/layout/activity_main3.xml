@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".MainActivity3">
 
     <ImageView
@@ -22,7 +23,6 @@
         android:id="@+id/view_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
         android:textColor="#FFF1F3FF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,18 +44,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintVertical_bias="1.0" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@color/white"
-        android:backgroundTint="#00000000"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        tools:layout_editor_absoluteX="334dp"
-        tools:layout_editor_absoluteY="57dp"
-        tools:visibility="visible" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addTweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="#F1F3FF"
+        app:srcCompat="@drawable/addicon"
+        tools:layout_editor_absoluteX="339dp"
+        tools:layout_editor_absoluteY="62dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
