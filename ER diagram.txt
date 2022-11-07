@@ -1,0 +1,16 @@
+Retweet database: 
+
+- 2tables:
+users 
+- u_id		
+- FName		
+- LName
+- Username	
+- Password
+
+tweets
+- User_id <- foreign key
+- Tweet_id
+- Is_deleted
+- Tweet
+- Like_count
