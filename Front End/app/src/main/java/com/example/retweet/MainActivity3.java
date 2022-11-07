@@ -1,6 +1,7 @@
 package com.example.retweet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,10 +15,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
 /*
     Activity 4 --> We have now moved to the feed
                    which shows all tweets on the
@@ -29,6 +32,10 @@ public class MainActivity3 extends AppCompatActivity {
     String base_url = "http://192.168.0.108.";
     RequestQueue queue;
     StringRequest request;
+    Adapter adapter;
+    RecyclerView recyclerView;
+    List<Tweet> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +43,19 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
         queue = Volley.newRequestQueue(MainActivity3.this);
         Button add_tweet = (Button) findViewById(R.id.addTweet);
+        recyclerView = findViewById(R.id.response);
+        list = new ArrayList<>();
+
     }
+
+    public void goSettings(View view){
+        startActivity(new Intent(MainActivity3.this, MainActivity5.class));
+    }
+
+    public void goAccount(View view) {
+        startActivity(new Intent(MainActivity3.this, MainActivity4.class));
+    }
+}
 
 
 //
@@ -80,12 +99,3 @@ public class MainActivity3 extends AppCompatActivity {
 //        };
 //        queue.add(request);
 //        }
-
-    public void goSettings(View view){
-    startActivity(new Intent(MainActivity3.this, MainActivity5.class));
-    }
-
-    public void goAccount(View view) {
-    startActivity(new Intent(MainActivity3.this, MainActivity4.class));
-    }
-}
