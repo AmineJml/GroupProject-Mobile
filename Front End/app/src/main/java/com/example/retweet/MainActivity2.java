@@ -1,7 +1,6 @@
 package com.example.retweet;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,28 +9,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-
+import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
 /*
     Activity 3 --> We have now moved to the register page
                     for a new user to create a new account
                     by filling in their fname, lname, and
                     username and password.
  */
-
-
 public class MainActivity2 extends AppCompatActivity {
     EditText fname, lname, user, pass, confirm_pass;
     ProgressBar pb;
@@ -49,13 +44,13 @@ public class MainActivity2 extends AppCompatActivity {
         user = (EditText) findViewById(R.id.user);
         pass = (EditText) findViewById(R.id.pass);
         confirm_pass = (EditText) findViewById(R.id.confirm_pass);
-        //btn = (Button) findViewById(R.id.register);
+        btn = (Button) findViewById(R.id.register);
         pb = (ProgressBar) findViewById(R.id.progressBar); //if equal success
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Register();
             }
         });
 
@@ -79,8 +74,11 @@ public class MainActivity2 extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
-                            if (success.equals(true)) {
+                            if (success.equals(true) && pass.equals(c_pass)) {
                                 Toast.makeText(MainActivity2.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(MainActivity2.this, MainActivity3.class));
+                            }else{
+                                Toast.makeText(MainActivity2.this, "Passwords don't match!", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             Toast.makeText(MainActivity2.this, "Register Error!" + e.toString(), Toast.LENGTH_SHORT).show();
@@ -98,6 +96,20 @@ public class MainActivity2 extends AppCompatActivity {
                         btn.setVisibility(View.VISIBLE);
                     }
                 }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("FName", fname);
+                params.put("LName", lname);
+                params.put("Username", user);
+                params.put("Password", pass);
+                return params;
+          }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+}
 
 //    public void register(String FName, String LName, String Username, String Password){
 //        String url = base_url + "register.php";
@@ -157,5 +169,4 @@ public class MainActivity2 extends AppCompatActivity {
 //
 //    }
 
-    }
-}
+

@@ -21,14 +21,23 @@
         android:layout_width="52dp"
         android:layout_height="65dp"
         android:onClick="goSettings"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="657dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986"
+        tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="52dp"
         android:layout_height="65dp"
         android:onClick="goHome"
-        tools:layout_editor_absoluteX="179dp"
-        tools:layout_editor_absoluteY="657dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986" />
 </androidx.constraintlayout.widget.ConstraintLayout>

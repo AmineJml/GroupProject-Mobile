@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,9 +24,13 @@
         android:clickable="true"
         android:onClick="addTweet"
         app:backgroundTint="#F1F3FF"
-        app:srcCompat="@drawable/addicon"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="59dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091"
+        app:srcCompat="@drawable/addicon" />
 
     <TextView
         android:id="@+id/response"
@@ -44,15 +48,23 @@
         android:layout_width="48dp"
         android:layout_height="53dp"
         android:onClick="goSettings"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="662dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
 
     <TextView
         android:id="@+id/account"
         android:layout_width="52dp"
         android:layout_height="48dp"
         android:onClick="goAccount"
-        tools:layout_editor_absoluteX="319dp"
-        tools:layout_editor_absoluteY="666dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
