@@ -21,11 +21,11 @@
         app:srcCompat="@drawable/feed2" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addTweet"
+        android:id="@+id/goToAddTweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:onClick="addTweet"
+        android:onClick="goToAddTweet"
         app:backgroundTint="#F1F3FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
         app:srcCompat="@drawable/addicon" />
 
     <TextView
-        android:id="@+id/settings"
+        android:id="@+id/goSettings_feed"
         android:layout_width="48dp"
         android:layout_height="53dp"
         android:onClick="goSettings"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.961" />
 
     <TextView
-        android:id="@+id/account"
+        android:id="@+id/goAccount_feed"
         android:layout_width="52dp"
         android:layout_height="48dp"
         android:onClick="goAccount"

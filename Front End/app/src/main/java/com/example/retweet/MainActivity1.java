@@ -48,8 +48,6 @@ public class MainActivity1 extends AppCompatActivity {
 
     public void register(String FName, String LName, String Username, String Password){
         String url = base_url + "register.php";
-
-
         request = new StringRequest(Request.Method.POST, url, this::onResponse, this::onError) {
             public Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();

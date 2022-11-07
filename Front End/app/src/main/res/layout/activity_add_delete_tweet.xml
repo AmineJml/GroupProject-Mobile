@@ -6,4 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".Add_Delete_Tweet">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/addTweet" />
+
+    <TextView
+        android:id="@+id/displayUser"
+        android:layout_width="384dp"
+        android:layout_height="39dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Username"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.197" />
+
+    <EditText
+        android:id="@+id/displayTweet"
+        android:layout_width="390dp"
+        android:layout_height="361dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="What's on your mind?"
+        android:inputType="textMultiLine"
+        android:textColor="@color/black"
+        android:textColorHint="#7E7E7E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.472" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="215dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#142897"
+        android:onClick="addTweet"
+        android:text="Add Tweet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.831" />
+
+    <TextView
+        android:id="@+id/goSettings_add"
+        android:layout_width="62dp"
+        android:layout_height="50dp"
+        android:onClick="goSettings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/goAccount_add"
+        android:layout_width="62dp"
+        android:layout_height="50dp"
+        android:onClick="goAccount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 </androidx.constraintlayout.widget.ConstraintLayout>
