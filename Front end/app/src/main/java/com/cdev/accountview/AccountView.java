@@ -55,7 +55,7 @@ public class MainActivity3 extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        StringRequest request = new StringRequest(base_url + "view_tweets_id.php", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(base_url + "get_view_tweets_id.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -93,6 +93,12 @@ public class MainActivity3 extends AppCompatActivity {
 
     public void goAccount(View view) {
         startActivity(new Intent(MainActivity3.this, MainActivity4.class));
+    }
+
+    //when the delete btn is pressed - the selected tweet will be deleted and the page will refresh afterwards
+    public void delete(View v){
+        //StringRequest request = new StringRequest(base_url + "delete_tweet.php", new Response.Listener<String>();
+        //refersh page
     }
 }
 
