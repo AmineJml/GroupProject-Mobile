@@ -45,7 +45,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.alltweets>{
             super(itemView);
             username = itemView.findViewById(R.id.showUsername);
             tweet_content = itemView.findViewById(R.id.showTweet);
-
         }
     }
 }
