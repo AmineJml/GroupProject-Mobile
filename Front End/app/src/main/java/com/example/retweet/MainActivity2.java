@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
@@ -34,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
     EditText fname, lname, user, pass, confirm_pass;
     ProgressBar pb;
     Button btn;
-    String base_url="http://192.168.0.101/GroupProject/Back End/";
+    String base_url = "http://192.168.0.101/GroupProject/Back End/register.php";
     StringRequest request;
     RequestQueue queue;
 
@@ -59,16 +61,44 @@ public class MainActivity2 extends AppCompatActivity {
 
         //register("amine", "jamal", "AA", "123");
     }
-    public void Register(){
-    pb.setVisibility(View.VISIBLE);
-    btn.setVisibility(View.GONE);
 
-    String fname=this.fname
-    String lname;
-    String user;
-    String pass;
-    String c_pass;
-    }
+    public void Register() {
+        pb.setVisibility(View.VISIBLE);
+        btn.setVisibility(View.GONE);
+
+        String fname = this.fname.getText().toString();
+        String lname = this.lname.getText().toString();
+        String user = this.user.getText().toString();
+        String pass = this.pass.getText().toString();
+        String c_pass = this.confirm_pass.getText().toString();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, base_url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            if (success.equals(true)) {
+                                Toast.makeText(MainActivity2.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(MainActivity2.this, "Register Error!" + e.toString(), Toast.LENGTH_SHORT).show();
+                            e.printStackTrace();
+                            pb.setVisibility(View.GONE);
+                            btn.setVisibility(View.VISIBLE);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(MainActivity2.this, "Register Error!" + error.toString(), Toast.LENGTH_SHORT).show();
+                        pb.setVisibility(View.GONE);
+                        btn.setVisibility(View.VISIBLE);
+                    }
+                }) {
+
 //    public void register(String FName, String LName, String Username, String Password){
 //        String url = base_url + "register.php";
 //
@@ -126,4 +156,6 @@ public class MainActivity2 extends AppCompatActivity {
 //    }
 //
 //    }
+
+    }
 }
