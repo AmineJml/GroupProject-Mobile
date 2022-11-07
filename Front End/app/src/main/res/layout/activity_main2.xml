@@ -10,6 +10,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -19,11 +20,10 @@
         app:srcCompat="@drawable/register" />
 
     <Button
-        android:id="@+id/signup2"
+        android:id="@+id/register"
         android:layout_width="207dp"
         android:layout_height="48dp"
         android:backgroundTint="#142897"
-        android:onClick="getStarted"
         android:text="Get Started"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,5 +120,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.532" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F1F3FF"
+        android:backgroundTintMode="add"
+        android:foregroundTint="#F1F3FF"
+        android:indeterminateTint="#F1F3FF"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#F1F3FF"
+        android:secondaryProgressTint="#F1F3FF"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.853" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

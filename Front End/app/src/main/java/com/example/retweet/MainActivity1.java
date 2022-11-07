@@ -33,13 +33,17 @@ public class MainActivity1 extends AppCompatActivity {
     String base_url="http://192.168.0.101/GroupProject/Back End/";
     StringRequest request;
     RequestQueue queue;
+    EditText user, pass;
+    Button btn, btn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-        Button btn = (Button)findViewById(R.id.signup);
-        Button btn1 = (Button)findViewById(R.id.login);
+        user = (EditText) findViewById(R.id.username);
+        pass = (EditText)findViewById(R.id.password);
+        btn = (Button)findViewById(R.id.signup);
+        btn1 = (Button)findViewById(R.id.login);
     }
 
     public void register(String FName, String LName, String Username, String Password){
@@ -75,10 +79,8 @@ public class MainActivity1 extends AppCompatActivity {
     }
 
     public void login(View view){
-        EditText user = (EditText) findViewById(R.id.username);
-        EditText pass = (EditText)findViewById(R.id.password);
-        String user_val = user.getText().toString();
-        String pass_val = pass.getText().toString();
+        String user_val = this.user.getText().toString();
+        String pass_val = this.pass.getText().toString();
 
         //if user_val and pass_val exist in db then login
         Toast.makeText(this, "Welcome @" + user_val + "!", Toast.LENGTH_SHORT).show();
@@ -92,6 +94,4 @@ public class MainActivity1 extends AppCompatActivity {
     public void signUp(View view){
         startActivity(new Intent(MainActivity1.this, MainActivity2.class));
     }
-
-
 }
