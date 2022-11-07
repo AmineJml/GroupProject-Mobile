@@ -61,7 +61,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
+        android:id="@+id/response"
         android:layout_width="362dp"
         android:layout_height="488dp"
         app:layout_constraintBottom_toBottomOf="parent"
