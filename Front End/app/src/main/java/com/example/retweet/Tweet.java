@@ -3,6 +3,7 @@ package com.example.retweet;
 public class Tweet {
     String username;
     String tweet_content;
+    int id;
 
     public Tweet(String username, String tweet_content){
         this.username=username;
@@ -23,5 +24,13 @@ public class Tweet {
 
     public void setTweet_content(String tweet_content) {
         this.tweet_content = tweet_content;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

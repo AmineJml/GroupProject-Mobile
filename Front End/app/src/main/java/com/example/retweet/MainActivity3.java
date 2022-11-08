@@ -8,20 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-
 /*
     Activity 4 --> We have now moved to the feed
                    which shows all tweets on the
@@ -36,7 +32,7 @@ public class MainActivity3 extends AppCompatActivity {
     Adapter adapter;
     RecyclerView recyclerView;
     List<Tweet> list;
-    Button add_tweet;
+    Button add_tweet, like;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +40,7 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
         queue = Volley.newRequestQueue(MainActivity3.this);
         add_tweet = (Button) findViewById(R.id.goToAddTweet);
+        like = (Button) findViewById(R.id.likeBtn);
         recyclerView = findViewById(R.id.response);
         list = new ArrayList<>();
         recyclerView.setHasFixedSize(true);
@@ -58,7 +55,8 @@ public class MainActivity3 extends AppCompatActivity {
                     JSONArray array = new JSONArray(response);
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
-                        list.add(new Tweet(object.getString("Username"),
+                        list.add(new Tweet(
+                                object.getString("Username"),
                                 object.getString("Tweet")));
                     }
                     adapter.notifyDataSetChanged();
@@ -77,9 +75,12 @@ public class MainActivity3 extends AppCompatActivity {
         Volley.newRequestQueue(this).add(request);
     }
 
+    public void likeTweet(View view){
+        like.setVisibility(View.GONE);
+    }
+
     public void goToAddTweet(View view){
         startActivity(new Intent(MainActivity3.this, Add_Delete_Tweet.class));
-        //make activity
     }
 
     public void goSettings(View view){
