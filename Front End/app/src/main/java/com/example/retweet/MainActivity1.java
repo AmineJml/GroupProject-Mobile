@@ -79,14 +79,9 @@ public class MainActivity1 extends AppCompatActivity {
     public void login(View view){
         String user_val = this.user.getText().toString();
         String pass_val = this.pass.getText().toString();
-
-        //if user_val and pass_val exist in db then login
         Toast.makeText(this, "Welcome @" + user_val + "!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(MainActivity1.this, MainActivity3.class));
-        //else if username exists in db but password wrong
-        Toast.makeText(this, "Invalid Password!",Toast.LENGTH_SHORT).show();
-        //else if neither exist
-        Toast.makeText(this, "Invalid account, please sign up!", Toast.LENGTH_SHORT).show();
+
     }
 
     public void signUp(View view){

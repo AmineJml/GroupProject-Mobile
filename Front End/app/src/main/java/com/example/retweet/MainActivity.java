@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 /*
     Activity 1 --> Splash Screen which will show for 2 seconds
                     and go to the next activity which is the

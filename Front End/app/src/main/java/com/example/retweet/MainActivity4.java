@@ -23,7 +23,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /*
     Activity 5 --> We have now moved to the users account
                     page where it shoes their first,last

@@ -24,7 +24,6 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
 /*
     Activity 6 --> We have now moved to the settings page
                     where the user can modify their own
